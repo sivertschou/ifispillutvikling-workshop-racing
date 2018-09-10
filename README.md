@@ -30,7 +30,7 @@ I Project-vinduet (og også prosjektet vårt) har mappene:
 ## Oppgave 2
 I denne delen skal vi sette opp spillet vårt. Når vi åpner prosjektet skal scenen "BaseScene" være åpnet, hvis den ikke er det må vi åpne denne fra mappen Assets -> Scenes. 
 
-Her ser vi en gressflate med en liten del av en bilbane. Hvis vi tar en titt på **Hierercy-vinduet** vårt ser vi har to objekter; "Main Camera" og "Grid", og at "Grid" har flere underobjekter (barn/children). 
+Her ser vi en gressflate med en liten del av en bilbane. Hvis vi tar en titt på **Hierarcy-vinduet** vårt ser vi har to objekter; "Main Camera" og "Grid", og at "Grid" har flere underobjekter (barn/children). 
 **Main Camera** er kameraet som bestemmer det som skal vises i spillet - hva som vises kan vi se i vinduet "Game". 
 **Grid** er det viktigste vi har i scenen vår enn så lenge. Det er her selve banen vår ligger og vil ligge, og selve rutenettet/komponenten brukes til å enkelt kunne plassere sprites/grafikk. Hvis vi tar en tit på underobjektene til "Grid" ser vi at vi har:
 * **Track** - der vi har grafikken til selve banen/veien. Her ligger det også et script og en komponent som påvirker bilen, men mer om det senere.
@@ -39,9 +39,9 @@ Her ser vi en gressflate med en liten del av en bilbane. Hvis vi tar en titt på
 
 ### Legge til bilen
 Siden vi allerede har en liten del av bilbanen, kan vi legge til bilen vår for å teste hvordan standaroppførselen fungerer.
-Vi navigerer oss mappen **Prefabs** ser vi en prefab med navn "CarPrefab". Vi kan nå dra og slippe denne prefaben inn i scenen vår, gjerne slik at den står på veien. Hvis vi nå tar en titt på "Hierercy"-vinduet vårt skal vi nå ha tre objekter; "Main Camera", "Grid" og "CarPrefab". 
+Vi navigerer oss mappen **Prefabs** ser vi en prefab med navn "CarPrefab". Vi kan nå dra og slippe denne prefaben inn i scenen vår, gjerne slik at den står på veien. Hvis vi nå tar en titt på "Hierarcy"-vinduet vårt skal vi nå ha tre objekter; "Main Camera", "Grid" og "CarPrefab". 
 ***
-Klikk på bilen, enten i "Scene"- eller "Hierercy"-vinduet. Vi ser nå at "Inspector"-vinduet vårt har fylt seg med informasjon om bilen. Helt øverst ser vi teksten "CarPrefab". Dette er navnet på objektet vårt, og det endrer vi til _MyCar_. 
+Klikk på bilen, enten i "Scene"- eller "Hierarcy"-vinduet. Vi ser nå at "Inspector"-vinduet vårt har fylt seg med informasjon om bilen. Helt øverst ser vi teksten "CarPrefab". Dette er navnet på objektet vårt, og det endrer vi til _MyCar_. 
 Videre ser vi at bilobjektet har flere komponenter;
 * **Transform** - informasjon om objektets posisjon, rotasjon og størrelse
 * **Sprite Renderer** - en komponent som inneholder informasjon om hva slags 2D-grafikk som objektet skal vise/ha.
