@@ -44,7 +44,7 @@ public class AIInputs : MonoBehaviour, Inputs {
 		}
 
 		// If close to point and angle is to great, slow down
-		if(toPoint.magnitude < 10f && angleToPoint > 30) {
+		if(toPoint.magnitude < 10f && angleToPoint > 20) {
 			if(!slowedDown) {
 				if (count != 0) count--;
 				else slowedDown = true;

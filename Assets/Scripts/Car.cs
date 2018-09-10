@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// vi krever at bilen har både en Inputs- og Rigidbody2D-komponent på seg
 [RequireComponent(typeof(Inputs), typeof(Rigidbody2D))]
 public class Car : MonoBehaviour {
 	Rigidbody2D rb = null;
 	Inputs inputs;
 
 	[Header("Variabler")]
-	[SerializeField] float handling = 100.0f;
+	[SerializeField] float handling = 150.0f;
 	[SerializeField] float acceleration = 1.5f;
 	[SerializeField] float deceleration = 4.0f;
 	[SerializeField] float maxSpeed = 5.0f;
@@ -24,54 +25,42 @@ public class Car : MonoBehaviour {
 	void Start () {
 		//henter ut Rigidbody2D-komponenten som ligger på objektet.
 		rb = GetComponent<Rigidbody2D> ();
+
+		//henter ut Inputs-script-komponenten som ligger på objektet
 		inputs = GetComponent<Inputs>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		//henter input fra Inputs-komponenten
 		inputVector = inputs.getMovement();
 	}
 
 	void FixedUpdate() {
-		//velocity = Mathf.Min (velocity / Mathf.Pow (Time.deltaTime, 2), maxSpeed);
-		/*
-		if(isOffroad){
-			velocity *= offroadMultiplier;
-		}
-		*/
-		if(inputVector.y > 0){ //accelerate
+
+		if(inputVector.y > 0){ // gi gass
 			velocity = velocity + (acceleration * Time.deltaTime);
-		}else if(inputVector.y < 0){ //brake
+		}else if(inputVector.y < 0){ // brems
 			velocity = velocity - (deceleration * Time.deltaTime);
-		} else{
+		} else{ // hverken gass eller brems
 			velocity = velocity - ((deceleration/2f) * Time.deltaTime);
 		}
 
+		// setter bilens max-speed basert på om bilen er på veien eller ikke
 		if(isOnRoad){
 			velocity = Mathf.Clamp (velocity, 0f, maxSpeed);
 		}else{
 			velocity = Mathf.Clamp (velocity, 0f, maxSpeed*offroadMultiplier);
 		}
 
+		// beregner rotasjonen basert på x-input
+		float rotateAmount = Vector3.Cross (new Vector3(-inputVector.x, 0f, 0f), Vector3.up).z;
 
-
-		//Debug.Log(velocity);
-
-		Vector3 newMovementVector = new Vector3(-inputVector.x, 0f, 0f);
-		if(newMovementVector != Vector3.zero){
-			//Debug.Log (newMovementVector);	
-			newMovementVector = newMovementVector.normalized;
-			//Debug.Log (" normalized: " + newMovementVector);
-		}
-		lastMovementVector = newMovementVector;
-
-		float rotateAmount = Vector3.Cross (newMovementVector, Vector3.up).z;
-
-		//Debug.Log (transform.right);
-
+		// setter bilens rotasjonshastighet
 		rb.angularVelocity = rotateAmount * handling * (Mathf.Min(1f, velocity));
+		// setter bilens fartsvektor til å være rett frem basert på bilens rotasjon
 		rb.velocity = transform.up * velocity;
-
+		
 
 	}
 
