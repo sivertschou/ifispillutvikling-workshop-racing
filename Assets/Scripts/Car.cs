@@ -8,10 +8,10 @@ public class Car : MonoBehaviour {
 	Inputs inputs;
 
 	[Header("Variabler")]
-	[SerializeField] float handling = 50.0f;
+	[SerializeField] float handling = 100.0f;
 	[SerializeField] float acceleration = 1.5f;
 	[SerializeField] float deceleration = 4.0f;
-	[SerializeField] float maxSpeed = 3.0f;
+	[SerializeField] float maxSpeed = 5.0f;
 	[SerializeField] float offroadMultiplier = .6f;
 	float velocity = 0.0f;
 

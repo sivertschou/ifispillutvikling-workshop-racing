@@ -1,7 +1,7 @@
 # Racing-workshop med IFI Spillutvikling
 
 Velkommen til racing-workshop!
-Hvis du ikke allerde har installert Unity ka du gjøre det [her](https://store.unity.com/download?ref=personal). Vi bruker versjon 2018.2.7.
+Hvis du ikke allerde har installert Unity kan du gjøre det [her](https://store.unity.com/download?ref=personal). Vi bruker versjon 2018.2.7.
 
 ## Oppgave 1
 
