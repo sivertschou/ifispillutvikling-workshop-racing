@@ -125,10 +125,10 @@ Hvis vi går tilbake til koden/scriptet, så kan vi legge til noen linje i Updat
 
 ```C#
 void Update () {
-		//setter kameraets posisjon til å være bilens posisjon, 
-		//men med et offset i z-aksen (slik at kameraet ikke er inni bilen)
-		transform.position = carTrans.position + new Vector3(0f, 0f, -10f);
-	}
+	//setter kameraets posisjon til å være bilens posisjon, 
+	//men med et offset i z-aksen (slik at kameraet ikke er inni bilen)
+	transform.position = carTrans.position + new Vector3(0f, 0f, -10f);
+}
 ```
 
 Hvis vi ønsker å zoome mer inn eller ut, kan vi endre på **Camera**-komponenten i _Inspector_-vinduet når vi har valgt _Main Camera_. Der kan vi endre zoom ved å endre **Size**-verdien.
