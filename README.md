@@ -39,7 +39,15 @@ Her ser vi en gressflate med en liten del av en bilbane. Hvis vi tar en titt på
 
 ### Legge til bilen
 Siden vi allerede har en liten del av bilbanen, kan vi legge til bilen vår for å teste hvordan standaroppførselen fungerer.
+<<<<<<< HEAD
+<<<<<<< HEAD
+Vi navigerer oss til mappen **Prefabs** og ser en prefab med navn "CarPrefab". Vi kan nå dra og slippe denne prefaben inn i scenen vår, gjerne slik at den står på veien. Hvis vi nå tar en titt på "Hierarcy"-vinduet vårt skal vi nå ha tre objekter; "Main Camera", "Grid" og "CarPrefab". 
+=======
 Vi navigerer oss mappen **Prefabs** ser vi en prefab med navn "CarPrefab". Vi kan nå dra og slippe denne prefaben inn i scenen vår, gjerne slik at den står på veien. Hvis vi nå tar en titt på "Hierarcy"-vinduet vårt skal vi nå ha tre objekter; "Main Camera", "Grid" og "CarPrefab". 
+>>>>>>> 8419d777a2c827e9ebbd8da38d2150615aaf8f53
+=======
+Vi navigerer oss mappen **Prefabs** ser vi en prefab med navn "CarPrefab". Vi kan nå dra og slippe denne prefaben inn i scenen vår, gjerne slik at den står på veien. Hvis vi nå tar en titt på "Hierarcy"-vinduet vårt skal vi nå ha tre objekter; "Main Camera", "Grid" og "CarPrefab". 
+>>>>>>> 8419d777a2c827e9ebbd8da38d2150615aaf8f53
 ***
 Klikk på bilen, enten i "Scene"- eller "Hierarcy"-vinduet. Vi ser nå at "Inspector"-vinduet vårt har fylt seg med informasjon om bilen. Helt øverst ser vi teksten "CarPrefab". Dette er navnet på objektet vårt, og det endrer vi til _MyCar_. 
 Videre ser vi at bilobjektet har flere komponenter;
@@ -72,7 +80,7 @@ Banen vår er nå noe kjedelig, så det må vi gjøre noe med!
 * Vi ser nå en toolbar øverst, her har vi diverse verktøy, men vi trenger foreløpig kun å bry oss om penselen/brush og viskelæret.
 * Under toolbaren ser vi en dropdown; her ønsker vi at **Track** skal være valgt. Dette bestemmer hvilket lag vi skal tegne på, og _Track_ er en referanse til underobjektet til _Grid_-objektet.
 * Under denne dropdownen ser vi selve paletten vår. Her kan vi klikke på en rute og bruke den som pensel.
-* Klik nå på ruten med asfalt-spriten (øverst til venstre av spritene). Nå som denne er valgt kan vi begynne å tegne på banen vår.
+* Klikk nå på ruten med asfalt-spriten (øverst til venstre av spritene). Nå som denne er valgt kan vi begynne å tegne på banen vår.
 * Tegn en bane med denne penselen i _Scene View_
 
 Når du har laget en bane du er fornøyd med, kan du teste denne ved å klikke på _Play_
@@ -104,10 +112,11 @@ For å få informasjon om bilens posisjon (x og y) trenger vi å opprette en ref
 
 ```C#
 ..
-[SeriallizeField] Transform carTrans = null;
-
 public class CameraController : MonoBehaviour {
-..
+
+	[SeriallizeField] Transform carTrans = null;
+	// Update is called once per frame
+	void Update () {..
 ```
 Nå som vi har laget en referanse fra scriptet som vi kan sette i editoren, er det på tide å teste det. 
 * Gå tilbake til Unity og velg **Main Camera** i _Hierarchy_-vinduet. 
@@ -138,7 +147,10 @@ Hvis vi ønsker å zoome mer inn eller ut, kan vi endre på **Camera**-komponent
 Nå om vi har fått på plass både bilen, banen og kameraet kan det være på tide å legge til multiplayer.
 
 Dette kan vi enkelt gjøre ved å kopiere/duplisere (duplicate) _MyCar_ og _Main Camera_. Dette kan vi gjøre ved å markere begge objektene, deretter trykker vi på **Ctrl/Cmd + D**. For å holde prosjektet oversiktlig bør vi endre den nye bilens navn til f.eks. _MyCar2_ og kameraets navn til _Cam2_. Vi må nå endre bilens _Player Inputs_-komponents taster (W kan f.eks. endres til _Up Arrow_ osv.). Vi kan også endre denne bilens farger, slik som vi gjorde tidligere.
-Siden _Main Camera_ har en komponent som heter _Audio Listener_, og siden vi har duplisert dette kameraet, må vi fjerne denne komponenten til _Cam2_. Dette er kun fordi at Unity kun tillater at man har én _Audio Listener_ per scene.
+Siden _Main Camera_ har en komponent som heter _Audio Listener_, og siden vi har duplisert dette kameraet, må vi fjerne denne komponenten til _Cam2_. Dette er fordi at Unity kun tillater at man har én _Audio Listener_ per scene. 
+
+For å fjerne denne velger vi _Cam2_-objektet, deretter finner vi fram til **Audio Listener**-komponenten. Klikk på det lille tannhjulet øverst til høyre på komponenten, deretter **Remove Component**.
+
 Vi må også få _Cam2_ sitt _CameraController_-script til å peke på **_MyCar2_**, og ikke _MyCar_. 
 ***
 Nå som vi har satt opp det meste, er det nå på tide å lage split-screen-effekten. Vi ønsker nå å vise alt som vises av _Main Camera_ (altså i hovedsak _MyCar_) på venstre halvdel av skjermen, og alt som vises av _Cam2_ på høyre side av skjermen.
@@ -147,3 +159,10 @@ Vi ønsker å endre _Main Camera_ sin _Viewpoint Rect_ sin **_width_** til 0.5.
 Vi ønsker å endre _Cam2_ sin _Viewpoint Rect_ sin **_width_** til 0.5 og **_x_** til 0.5.
 
 Hvis vi starter spillet nå, ser vi at vi har oppnådd en split-screen-effekt!
+
+## Videre
+Godt jobbet! Du er gjennom dagens oppgaver!
+Hvis du ønsker å jobbe videre på prosjektet, er dette noen forslag til noe du kan legge til:
+* Legge til AI ved å bruke scriptet AIInputs - dette ligger i Scripts-mappen. Dette erstatter altså PlayerInputs-scriptet. For at AIInputs skal fungere, må det plasseres waypoints på banen. Dette gjør du ved å lage et tomt gameobjekt og legger til Tag-en "Waypoints". Deretter legger du til tomme gameobjekts som barneobjekter av dette objektet. Disse blir da waypointsene, og det øverste barneelementet er det første waypointet osv.
+* Legge til et score-system. Du kan legge til en trigger ved mål som trigger et script når en bil passerer. 
+* Legge til UI som viser score osv.
