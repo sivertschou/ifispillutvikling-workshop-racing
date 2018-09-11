@@ -19,7 +19,6 @@ public class Car : MonoBehaviour {
 	bool isOnRoad = true;
 
 	Vector2 inputVector = Vector2.zero;
-	private Vector3 lastMovementVector = Vector3.zero;
 
 	// Use this for initialization
 	void Start () {
