@@ -39,15 +39,7 @@ Her ser vi en gressflate med en liten del av en bilbane. Hvis vi tar en titt på
 
 ### Legge til bilen
 Siden vi allerede har en liten del av bilbanen, kan vi legge til bilen vår for å teste hvordan standaroppførselen fungerer.
-<<<<<<< HEAD
-<<<<<<< HEAD
 Vi navigerer oss til mappen **Prefabs** og ser en prefab med navn "CarPrefab". Vi kan nå dra og slippe denne prefaben inn i scenen vår, gjerne slik at den står på veien. Hvis vi nå tar en titt på "Hierarcy"-vinduet vårt skal vi nå ha tre objekter; "Main Camera", "Grid" og "CarPrefab". 
-=======
-Vi navigerer oss mappen **Prefabs** ser vi en prefab med navn "CarPrefab". Vi kan nå dra og slippe denne prefaben inn i scenen vår, gjerne slik at den står på veien. Hvis vi nå tar en titt på "Hierarcy"-vinduet vårt skal vi nå ha tre objekter; "Main Camera", "Grid" og "CarPrefab". 
->>>>>>> 8419d777a2c827e9ebbd8da38d2150615aaf8f53
-=======
-Vi navigerer oss mappen **Prefabs** ser vi en prefab med navn "CarPrefab". Vi kan nå dra og slippe denne prefaben inn i scenen vår, gjerne slik at den står på veien. Hvis vi nå tar en titt på "Hierarcy"-vinduet vårt skal vi nå ha tre objekter; "Main Camera", "Grid" og "CarPrefab". 
->>>>>>> 8419d777a2c827e9ebbd8da38d2150615aaf8f53
 ***
 Klikk på bilen, enten i "Scene"- eller "Hierarcy"-vinduet. Vi ser nå at "Inspector"-vinduet vårt har fylt seg med informasjon om bilen. Helt øverst ser vi teksten "CarPrefab". Dette er navnet på objektet vårt, og det endrer vi til _MyCar_. 
 Videre ser vi at bilobjektet har flere komponenter;
