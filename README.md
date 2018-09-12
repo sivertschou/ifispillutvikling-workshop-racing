@@ -106,7 +106,7 @@ For å få informasjon om bilens posisjon (x og y) trenger vi å opprette en ref
 ..
 public class CameraController : MonoBehaviour {
 
-	[SeriallizeField] Transform carTrans = null;
+	[SerializeField] Transform carTrans = null;
 	// Update is called once per frame
 	void Update () {..
 ```
